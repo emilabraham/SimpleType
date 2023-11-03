@@ -8,7 +8,7 @@ func _ready():
 	text = "emilabraham"
 
 func _input(event):
-	if event is InputEventKey:
+	if event is InputEventKey and event.is_pressed():
 		contains_and_emit(event.as_text_key_label().to_lower())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

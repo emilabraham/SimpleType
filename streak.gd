@@ -8,7 +8,7 @@ func _ready():
 	text = str(streak)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func increment_streak():

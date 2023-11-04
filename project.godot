@@ -14,10 +14,6 @@ config/name="Simple Type"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/size/mode=3
-
 [filesystem]
 
 import/blender/enabled=false

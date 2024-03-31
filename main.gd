@@ -26,3 +26,5 @@ func spawn_word():
 	text_instance.set_position(Vector2(randi_range(100, 1000), randi_range(100, 500)))
 	text_instance.set_word(dictionary.pick_random())
 	add_child(text_instance)
+	text_instance.update_score.connect($HUD._on_text_update_score)
+	text_instance.break_streak.connect($HUD._on_text_break_streak)

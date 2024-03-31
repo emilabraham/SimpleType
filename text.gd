@@ -3,9 +3,14 @@ extends Label
 signal update_score
 signal break_streak
 
+var dictionary = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	text = "emilabraham"
+	load_dictionary()
+	text = dictionary.pick_random()
+	print(text)
+	print(text.length())
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed():
@@ -14,6 +19,14 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+func load_dictionary():
+	var file = FileAccess.open('res://dictionary.txt', FileAccess.READ)
+	while not file.eof_reached():
+		var line = file.get_line()
+		if (!line.is_empty()):
+			dictionary.push_back(String(line))
+	file.close()
 
 func contains_and_emit(key_label):
 	if text.substr(0, 1).contains(key_label):

@@ -2,6 +2,7 @@ extends Label
 
 signal update_score
 signal break_streak
+signal kill_word
 
 var dictionary = []
 
@@ -26,4 +27,5 @@ func set_word(word):
 func update_text():
 	text = text.substr(1, text.length() + 1)
 	if text.is_empty():
-		hide()
+		kill_word.emit()
+		queue_free()

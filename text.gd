@@ -15,7 +15,7 @@ func _process(_delta):
 	pass
 
 func contains_and_emit(key_label):
-	if text.substr(0, 1).contains(key_label):
+	if text.substr(0, 1).to_lower().contains(key_label):
 		update_text()
 		update_score.emit()
 	else:

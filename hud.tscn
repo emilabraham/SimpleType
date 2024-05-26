@@ -15,6 +15,14 @@ offset_bottom = 29.0
 text = "0"
 script = ExtResource("2_hq6gr")
 
+[node name="Multiplier" type="Label" parent="."]
+offset_left = 1112.0
+offset_top = 66.0
+offset_right = 1152.0
+offset_bottom = 92.0
+text = "0"
+script = ExtResource("2_hq6gr")
+
 [node name="Streak" type="Label" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
@@ -32,6 +40,13 @@ offset_top = 3.0
 offset_right = 63.0
 offset_bottom = 29.0
 text = "Score:"
+
+[node name="MultiplierLabel" type="Label" parent="."]
+offset_left = 1028.0
+offset_top = 66.0
+offset_right = 1108.0
+offset_bottom = 92.0
+text = "Multiplier:"
 
 [node name="StreakLabel" type="Label" parent="."]
 offset_left = 1054.0

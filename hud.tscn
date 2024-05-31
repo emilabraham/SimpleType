@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d042jju7p3wxg"]
+[gd_scene load_steps=5 format=3 uid="uid://d042jju7p3wxg"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_51dd1"]
 [ext_resource type="Script" path="res://score.gd" id="2_hq6gr"]
+[ext_resource type="Script" path="res://multiplier.gd" id="3_i0b4k"]
 [ext_resource type="Script" path="res://streak.gd" id="3_ylyg7"]
 
 [node name="HUD" type="CanvasLayer"]
@@ -21,7 +22,7 @@ offset_top = 66.0
 offset_right = 1152.0
 offset_bottom = 92.0
 text = "0"
-script = ExtResource("2_hq6gr")
+script = ExtResource("3_i0b4k")
 
 [node name="Streak" type="Label" parent="."]
 anchors_preset = 1

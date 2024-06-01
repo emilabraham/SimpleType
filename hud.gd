@@ -16,6 +16,7 @@ func _on_text_update_score():
 
 func _on_text_break_streak():
 	$Streak.break_streak()
+	$Multiplier.break_multiplier()
 	
 func _on_multiplier_threshold_crossed():
-	$Multiplier.increment_multiplier()
+	$Multiplier.increment_multiplier_index()

@@ -3,7 +3,7 @@ extends Label
 signal multiplier_threshold_crossed
 
 var streak
-var streak_thresholds = [4, 8, 16, 32]
+var streak_thresholds = [4, 8, 16, 32, 64]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

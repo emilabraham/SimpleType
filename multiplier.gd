@@ -20,3 +20,6 @@ func increment_multiplier_index():
 func break_multiplier():
 	multiplier_index = 0
 	text = str(multiplier_values[multiplier_index])
+	
+func get_multiplier():
+	return multiplier_values[multiplier_index]

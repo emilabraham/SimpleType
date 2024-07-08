@@ -5,6 +5,11 @@ signal break_streak
 signal kill_word
 
 var dictionary = []
+var is_focused = false
+var original_text_length = 0
+
+func _ready():
+	add_to_group("enemies")
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed():
@@ -28,4 +33,5 @@ func update_text():
 	text = text.substr(1, text.length() + 1)
 	if text.is_empty():
 		kill_word.emit()
+		remove_from_group("enemies")
 		queue_free()

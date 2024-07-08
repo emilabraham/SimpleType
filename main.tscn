@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_qnr2i"]
 [ext_resource type="PackedScene" uid="uid://d042jju7p3wxg" path="res://hud.tscn" id="3_at8w2"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" groups=["enemies"]]
 script = ExtResource("1_qnr2i")
 
 [node name="HUD" parent="." instance=ExtResource("3_at8w2")]

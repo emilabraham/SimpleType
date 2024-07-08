@@ -21,6 +21,8 @@ func _process(_delta):
 
 func contains_and_emit(key_label):
 	if text.substr(0, 1).to_lower().contains(key_label):
+		if text.length() == original_text_length:
+			set_focus(true)
 		update_text()
 		update_score.emit()
 	else:
@@ -28,10 +30,19 @@ func contains_and_emit(key_label):
 
 func set_word(word):
 	text = word
+	original_text_length = text.length()
 
 func update_text():
 	text = text.substr(1, text.length() + 1)
 	if text.is_empty():
+		set_focus(false)
 		kill_word.emit()
 		remove_from_group("enemies")
 		queue_free()
+
+func set_focus(value):
+	is_focused = value
+	if value:
+		add_theme_color_override("font_color", "red")
+	else:
+		add_theme_color_override("font_color", "white")

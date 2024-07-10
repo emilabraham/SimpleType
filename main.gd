@@ -7,6 +7,7 @@ var text = preload("res://text.tscn")
 func _ready():
 	load_dictionary()
 	spawn_word()
+	spawn_word()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

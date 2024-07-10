@@ -20,17 +20,29 @@ func _process(_delta):
 	pass
 
 func contains_and_emit(key_label):
+	# TODO: Bug here where we are always breaking the streak
+	# TODO: I think we should check if it is focused text as the first thing
 	if text.substr(0, 1).to_lower().contains(key_label):
-		if text.length() == original_text_length:
+		if should_focus(text):
 			set_focus(true)
-		update_text()
-		update_score.emit()
+		if is_focused:
+			update_text()
+			update_score.emit()
 	else:
 		break_streak.emit()
 
 func set_word(word):
 	text = word
 	original_text_length = text.length()
+
+func should_focus(t):
+	var is_first_character = t.length() == original_text_length
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	var no_other_focus = true
+	for enemy in enemies:
+		if enemy.is_focused:
+			no_other_focus = false
+	return is_first_character && no_other_focus
 
 func update_text():
 	text = text.substr(1, text.length() + 1)

@@ -7,6 +7,7 @@ signal kill_word
 var dictionary = []
 var is_focused = false
 var original_text = ""
+var deleting = false
 
 func _ready():
 	add_to_group("enemies")
@@ -20,7 +21,6 @@ func _process(_delta):
 	pass
 
 func contains_and_emit(key_label):
-	# TODO: Bug where we are not breaking the streak when there is no focused enemy
 	var is_first_character = text.substr(0, 1).to_lower().contains(key_label)
 	if has_focused_enemy():
 		if is_focused:
@@ -30,19 +30,25 @@ func contains_and_emit(key_label):
 			else:
 				break_streak.emit()
 	else:
-		if should_focus(text, is_first_character):
+		if should_focus(text, is_first_character) && !is_focused:
+			if deleting:
+				get_tree().call_group("enemies", "toggle_deleting")
 			set_focus(true)
 			update_text()
 			update_score.emit()
+		elif !can_focus(key_label) && !deleting:
+			break_streak.emit()
 
 func set_word(word):
 	text = word
 	original_text = word
 
+# Determines if this word should get newly focused
 func should_focus(t, is_first_character):
 	var fresh_word = t == original_text
 	return fresh_word && is_first_character && !has_focused_enemy()
 
+# Determines if there is an enemy that already has focus
 func has_focused_enemy():
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	var no_other_focus = false
@@ -51,13 +57,32 @@ func has_focused_enemy():
 			no_other_focus = true
 	return no_other_focus
 
+# Determines if the given letter is the first character in any of the enemies
+func can_focus(key_label):
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	var potential_focus = false
+	for enemy in enemies:
+		if enemy.text.substr(0, 1).to_lower().contains(key_label):
+			potential_focus = true
+	return potential_focus
+
+# Update the text.
+# Kills the text object if it is the last character.
 func update_text():
 	text = text.substr(1, text.length() + 1)
 	if text.is_empty():
 		set_focus(false)
-		kill_word.emit()
 		remove_from_group("enemies")
 		queue_free()
+		kill_word.emit()
+		get_tree().call_group("enemies", "toggle_deleting")
+
+# We enter deleting mode as we are deleting a text object
+# We exit deleting mode as we are getting a new focus
+# I noticed when entering the last character, we would inadverdently break the streak
+# This method prevents that
+func toggle_deleting():
+	deleting = !deleting
 
 func set_focus(value):
 	is_focused = value

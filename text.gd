@@ -71,11 +71,13 @@ func can_focus(key_label):
 func update_text():
 	text = text.substr(1, text.length() + 1)
 	if text.is_empty():
-		set_focus(false)
-		remove_from_group("enemies")
-		queue_free()
 		kill_word.emit()
-		get_tree().call_group("enemies", "toggle_deleting")
+
+func remove_word():
+	set_focus(false)
+	remove_from_group("enemies")
+	queue_free()
+	get_tree().call_group("enemies", "toggle_deleting")
 
 # We enter deleting mode as we are deleting a text object
 # We exit deleting mode as we are getting a new focus

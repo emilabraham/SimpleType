@@ -20,9 +20,6 @@ func load_dictionary():
 		if (!line.is_empty()):
 			dictionary.push_back(String(line))
 	file.close()
-	
-func _on_kill_word():
-	spawn_word()
 
 func spawn_word():
 	var text_instance = text.instantiate()
@@ -31,4 +28,4 @@ func spawn_word():
 	add_child(text_instance)
 	text_instance.update_score.connect($HUD._on_text_update_score)
 	text_instance.break_streak.connect($HUD._on_text_break_streak)
-	text_instance.kill_word.connect(_on_kill_word)
+	text_instance.kill_word.connect($HUD/Bullet._fire)

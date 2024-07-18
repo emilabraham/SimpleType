@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh042utk4jn1a"]
+[gd_scene load_steps=5 format=3 uid="uid://bh042utk4jn1a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_qnr2i"]
+[ext_resource type="Texture2D" uid="uid://c80r6jiqn36hv" path="res://icon.svg" id="3_3xn0f"]
 [ext_resource type="PackedScene" uid="uid://d042jju7p3wxg" path="res://hud.tscn" id="3_at8w2"]
+[ext_resource type="Script" path="res://Bullet.gd" id="4_w1rkm"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_qnr2i")
 
 [node name="HUD" parent="." instance=ExtResource("3_at8w2")]
+
+[node name="Bullet" type="Sprite2D" parent="HUD"]
+position = Vector2(541, 611)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_3xn0f")
+script = ExtResource("4_w1rkm")

@@ -2,7 +2,7 @@ extends Label
 
 signal update_score
 signal break_streak
-signal kill_word
+signal kill_word(position)
 
 var dictionary = []
 var is_focused = false
@@ -69,9 +69,10 @@ func can_focus(key_label):
 # Update the text.
 # Kills the text object if it is the last character.
 func update_text():
-	text = text.substr(1, text.length() + 1)
-	if text.is_empty():
-		kill_word.emit()
+	if text.length() == 1:
+		kill_word.emit(position)
+	else:
+		text = text.substr(1, text.length() + 1)
 
 func remove_word():
 	set_focus(false)

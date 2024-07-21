@@ -28,4 +28,4 @@ func spawn_word():
 	add_child(text_instance)
 	text_instance.update_score.connect($HUD._on_text_update_score)
 	text_instance.break_streak.connect($HUD._on_text_break_streak)
-	text_instance.kill_word.connect($HUD/Bullet._fire)
+	text_instance.kill_word.connect($Bullet._fire)

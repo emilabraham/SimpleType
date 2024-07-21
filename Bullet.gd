@@ -5,6 +5,7 @@ signal destroy_word
 var speed = 1000
 var target_position = position
 var target_word = null
+var starting_position = Vector2(600, 575)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,3 +24,7 @@ func _process(delta):
 			visible = false
 			target_word.remove_word()
 			target_word = null
+			reset_position()
+
+func reset_position():
+	position = starting_position

@@ -11,7 +11,7 @@ script = ExtResource("1_qnr2i")
 [node name="HUD" parent="." instance=ExtResource("3_at8w2")]
 
 [node name="Bullet" type="Sprite2D" parent="."]
-position = Vector2(541, 611)
+position = Vector2(600, 575)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_3xn0f")
 script = ExtResource("4_w1rkm")

@@ -1,0 +1,5 @@
+Powerups:
+	Inspiration from the book The Dark Forest.
+	You obtain a powerup which lets you go into strong force mode. Your ship becomes indestructible,
+	but you lose access to your weapons. However, whenever you type, you now ram into your target,
+	blowing it up while your ship sustains no damage.

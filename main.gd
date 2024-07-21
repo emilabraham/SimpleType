@@ -29,3 +29,6 @@ func spawn_word():
 	text_instance.update_score.connect($HUD._on_text_update_score)
 	text_instance.break_streak.connect($HUD._on_text_break_streak)
 	text_instance.kill_word.connect($Bullet._fire)
+
+func _on_destroy_word():
+	spawn_word()

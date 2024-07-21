@@ -25,6 +25,7 @@ func _process(delta):
 			target_word.remove_word()
 			target_word = null
 			reset_position()
+			destroy_word.emit()
 
 func reset_position():
 	position = starting_position

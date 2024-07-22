@@ -71,11 +71,11 @@ func can_focus(key_label):
 func update_text():
 	if text.length() == 1:
 		kill_word.emit(self)
+		set_focus(false)
 	else:
 		text = text.substr(1, text.length() + 1)
 
 func remove_word():
-	set_focus(false)
 	remove_from_group("enemies")
 	queue_free()
 	get_tree().call_group("enemies", "toggle_deleting")

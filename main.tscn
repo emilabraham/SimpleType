@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh042utk4jn1a"]
+[gd_scene load_steps=7 format=3 uid="uid://bh042utk4jn1a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_qnr2i"]
 [ext_resource type="Texture2D" uid="uid://c80r6jiqn36hv" path="res://icon.svg" id="3_3xn0f"]
 [ext_resource type="PackedScene" uid="uid://d042jju7p3wxg" path="res://hud.tscn" id="3_at8w2"]
 [ext_resource type="Script" path="res://Bullet.gd" id="4_w1rkm"]
+[ext_resource type="Texture2D" uid="uid://clftvvcsnvpia" path="res://Spaceship_01_YELLOW.png" id="5_s05e3"]
+[ext_resource type="Script" path="res://Ship.gd" id="6_0i4ph"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_qnr2i")
@@ -15,5 +17,11 @@ position = Vector2(600, 575)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_3xn0f")
 script = ExtResource("4_w1rkm")
+
+[node name="Ship" type="Sprite2D" parent="."]
+position = Vector2(600, 575)
+scale = Vector2(0.176, 0.176)
+texture = ExtResource("5_s05e3")
+script = ExtResource("6_0i4ph")
 
 [connection signal="destroy_word" from="Bullet" to="." method="_on_destroy_word"]

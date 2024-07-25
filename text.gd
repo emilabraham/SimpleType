@@ -70,7 +70,6 @@ func can_focus(key_label):
 # Kills the text object if it is the last character.
 func update_text():
 	if text.length() == 1:
-		print(self.position)
 		kill_word.emit(self)
 		set_focus(false)
 	else:

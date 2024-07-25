@@ -32,7 +32,6 @@ func spawn_word():
 	text_instance.kill_word.connect(_on_kill_word)
 
 func _on_kill_word(word):
-	print(word.position)
 	var bullet_instance = bullet.instantiate()
 	add_child(bullet_instance)
 	bullet_instance.destroy_word.connect(_on_destroy_word)

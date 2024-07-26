@@ -30,6 +30,7 @@ func spawn_word():
 	text_instance.update_score.connect($HUD._on_text_update_score)
 	text_instance.break_streak.connect($HUD._on_text_break_streak)
 	text_instance.kill_word.connect(_on_kill_word)
+	text_instance.kill_word.connect($Ship._on_kill_word)
 
 # picks a word such that the first letter of all words is unique
 func pick_word():

@@ -11,7 +11,6 @@ script = ExtResource("1_qnr2i")
 [node name="HUD" parent="." instance=ExtResource("3_at8w2")]
 
 [node name="Ship" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(600, 575)
 scale = Vector2(0.176, 0.176)
 texture = ExtResource("5_s05e3")

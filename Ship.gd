@@ -9,3 +9,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+func _on_kill_word(word):
+	self.look_at(word.position)
+	# An extra 90 degree rotation because for some reason "forward" is right
+	self.rotate(PI/2)

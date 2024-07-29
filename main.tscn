@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_qnr2i"]
 [ext_resource type="PackedScene" uid="uid://d042jju7p3wxg" path="res://hud.tscn" id="3_at8w2"]
-[ext_resource type="Texture2D" uid="uid://clftvvcsnvpia" path="res://Spaceship_01_YELLOW.png" id="5_s05e3"]
+[ext_resource type="Texture2D" uid="uid://clftvvcsnvpia" path="res://assets/Spaceship_01_YELLOW.png" id="5_s05e3"]
 [ext_resource type="Script" path="res://Ship.gd" id="6_0i4ph"]
 
 [node name="Main" type="Node"]

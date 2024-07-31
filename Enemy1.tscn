@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqfa23ihtjkbs"]
+
+[ext_resource type="Script" path="res://Enemy1.gd" id="1_n76nn"]
+[ext_resource type="Texture2D" uid="uid://dnkekvprtrysp" path="res://assets/enemy_ships/ship_1.png" id="1_rr715"]
+[ext_resource type="Script" path="res://Enemy1Text.gd" id="3_etmgu"]
+
+[node name="Enemy1" type="Node2D"]
+script = ExtResource("1_n76nn")
+
+[node name="Enemy1Text" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_etmgu")
+
+[node name="Enemy1Sprite" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_rr715")

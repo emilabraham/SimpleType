@@ -1,13 +1,12 @@
 extends Node
 
 var dictionary = []
-var text = preload("res://text.tscn")
-var bullet = preload("res://bullet.tscn")
+var enemy1 = preload("res://Enemy1.tscn")
+var bullet = preload("res://Bullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_dictionary()
-	spawn_word()
+	#load_dictionary()
 	spawn_word()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,28 +22,12 @@ func load_dictionary():
 	file.close()
 
 func spawn_word():
-	var text_instance = text.instantiate()
-	text_instance.set_position(Vector2(randi_range(100, 1000), randi_range(100, 500)))
-	text_instance.set_word(pick_word())
-	add_child(text_instance)
-	text_instance.update_score.connect($HUD._on_text_update_score)
-	text_instance.break_streak.connect($HUD._on_text_break_streak)
-	text_instance.kill_word.connect(_on_kill_word)
-	text_instance.kill_word.connect($Ship._on_kill_word)
-
-# picks a word such that the first letter of all words is unique
-func pick_word():
-	var word = dictionary.pick_random()
-	var enemies = get_tree().get_nodes_in_group("enemies")
-	var non_unique = false
-	for enemy in enemies:
-		if enemy.text.substr(0, 1) == word.substr(0,1):
-			non_unique = true
-
-	if non_unique:
-		return pick_word()
-	else:
-		return word
+	var enemy1_instance = enemy1.instantiate()
+	add_child(enemy1_instance)
+	enemy1_instance.text.update_score.connect($HUD._on_text_update_score)
+	enemy1_instance.text.break_streak.connect($HUD._on_text_break_streak)
+	enemy1_instance.text.kill_word.connect(_on_kill_word)
+	enemy1_instance.text.kill_word.connect($Ship._on_kill_word)
 
 func _on_kill_word(word):
 	var bullet_instance = bullet.instantiate()

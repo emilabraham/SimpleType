@@ -21,24 +21,23 @@ func _process(_delta):
 	pass
 
 func contains_and_emit(key_label):
-	#var is_first_character = text.substr(0, 1).to_lower().contains(key_label)
-	#if has_focused_enemy():
-		#if is_focused:
-			#if is_first_character:
-				#update_text()
-				#update_score.emit()
-			#else:
-				#break_streak.emit()
-	#else:
-		#if should_focus(text, is_first_character) && !is_focused:
-			#if deleting:
-				#get_tree().call_group("enemies", "toggle_deleting")
-			#set_focus(true)
-			#update_text()
-			#update_score.emit()
-		#elif !can_focus(key_label) && !deleting:
-			#break_streak.emit()
-	pass
+	var is_first_character = text.substr(0, 1).to_lower().contains(key_label)
+	if has_focused_enemy():
+		if is_focused:
+			if is_first_character:
+				update_text()
+				update_score.emit()
+			else:
+				break_streak.emit()
+	else:
+		if should_focus(text, is_first_character) && !is_focused:
+			if deleting:
+				get_tree().call_group("enemies", "toggle_deleting")
+			set_focus(true)
+			update_text()
+			update_score.emit()
+		elif !can_focus(key_label) && !deleting:
+			break_streak.emit()
 
 func set_word(word):
 	text = word

@@ -8,9 +8,12 @@
 script = ExtResource("1_n76nn")
 
 [node name="Enemy1Text" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 43.0
 script = ExtResource("3_etmgu")
+metadata/_edit_use_anchors_ = true
 
 [node name="Enemy1Sprite" type="Sprite2D" parent="."]
 rotation = 3.14159

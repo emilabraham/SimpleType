@@ -1,25 +1,15 @@
 extends Node
 
-var dictionary = []
 var enemy1 = preload("res://Enemy1.tscn")
 var bullet = preload("res://Bullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#load_dictionary()
 	spawn_word()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-
-func load_dictionary():
-	var file = FileAccess.open('res://dictionary.txt', FileAccess.READ)
-	while not file.eof_reached():
-		var line = file.get_line()
-		if (!line.is_empty()):
-			dictionary.push_back(String(line))
-	file.close()
 
 func spawn_word():
 	var enemy1_instance = enemy1.instantiate()

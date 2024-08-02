@@ -6,6 +6,7 @@ var text
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("enemies")
 	set_position(Vector2(randi_range(100, 1000), randi_range(100, 500)))
 	sprite = get_node("Enemy1Sprite")
 	text = get_node("Enemy1Text")

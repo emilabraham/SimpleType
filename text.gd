@@ -50,39 +50,35 @@ func should_focus(t, is_first_character):
 
 # Determines if there is an enemy that already has focus
 func has_focused_enemy():
-	#var enemies = get_tree().get_nodes_in_group("enemies")
-	#var no_other_focus = false
-	#for enemy in enemies:
-		#if enemy.is_focused:
-			#no_other_focus = true
-	#return no_other_focus
-	pass
+	var enemies = get_tree().get_nodes_in_group("enemies").map(func(enemy): return enemy.text)
+	var no_other_focus = false
+	for enemy in enemies:
+		if enemy.is_focused:
+			no_other_focus = true
+	return no_other_focus
 
 # Determines if the given letter is the first character in any of the enemies
 func can_focus(key_label):
-	#var enemies = get_tree().get_nodes_in_group("enemies")
-	#var potential_focus = false
-	#for enemy in enemies:
-		#if enemy.text.substr(0, 1).to_lower().contains(key_label):
-			#potential_focus = true
-	#return potential_focus
-	pass
+	var enemies = get_tree().get_nodes_in_group("enemies").map(func(enemy): return enemy.text)
+	var potential_focus = false
+	for enemy in enemies:
+		if enemy.text.substr(0, 1).to_lower().contains(key_label):
+			potential_focus = true
+	return potential_focus
 
 # Update the text.
 # Kills the text object if it is the last character.
 func update_text():
-	#if text.length() == 1:
-		#kill_word.emit(self)
-		#set_focus(false)
-	#else:
-		#text = text.substr(1, text.length() + 1)
-	pass
+	if text.length() == 1:
+		kill_word.emit(self)
+		set_focus(false)
+	else:
+		text = text.substr(1, text.length() + 1)
 
 func remove_word():
-	#remove_from_group("enemies")
-	#queue_free()
-	#get_tree().call_group("enemies", "toggle_deleting")
-	pass
+	remove_from_group("enemies")
+	queue_free()
+	get_tree().call_group("enemies", "toggle_deleting")
 
 # We enter deleting mode as we are deleting a text object
 # We exit deleting mode as we are getting a new focus
@@ -109,14 +105,13 @@ func load_dictionary():
 # picks a word such that the first letter of all words is unique
 func pick_word():
 	var word = dictionary.pick_random()
-	return word
-	#var enemies = get_tree().get_nodes_in_group("enemies")
-	#var non_unique = false
-	#for enemy in enemies:
-		#if enemy.text.substr(0, 1) == word.substr(0,1):
-			#non_unique = true
+	var enemies = get_tree().get_nodes_in_group("enemies").map(func(enemy): return enemy.text)
+	var non_unique = false
+	for enemy in enemies:
+		if enemy.text.substr(0, 1) == word.substr(0,1):
+			non_unique = true
 
-	#if non_unique:
-		#return pick_word()
-	#else:
-		#return word
+	if non_unique:
+		return pick_word()
+	else:
+		return word

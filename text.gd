@@ -75,11 +75,6 @@ func update_text():
 	else:
 		text = text.substr(1, text.length() + 1)
 
-func remove_word():
-	remove_from_group("enemies")
-	queue_free()
-	get_tree().call_group("enemies", "toggle_deleting")
-
 # We enter deleting mode as we are deleting a text object
 # We exit deleting mode as we are getting a new focus
 # I noticed when entering the last character, we would inadverdently break the streak

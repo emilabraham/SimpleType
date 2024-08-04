@@ -1,6 +1,7 @@
 extends Node2D
 
 var dictionary = []
+var deleting = false
 var sprite
 var text
 
@@ -11,6 +12,17 @@ func _ready():
 	sprite = get_node("Enemy1Sprite")
 	text = get_node("Enemy1Text")
 
+func remove_word():
+	remove_from_group("enemies")
+	queue_free()
+	get_tree().call_group("enemies", "toggle_deleting")
+
+# We enter deleting mode as we are deleting a text object
+# We exit deleting mode as we are getting a new focus
+# I noticed when entering the last character, we would inadverdently break the streak
+# This method prevents that
+func toggle_deleting():
+	text.deleting = !deleting
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

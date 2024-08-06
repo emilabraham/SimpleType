@@ -10,7 +10,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _on_kill_word(word):
-	self.look_at(word.position)
+func _on_kill_word(_main, word):
+	look_at(word.position)
 	# An extra 90 degree rotation because for some reason "forward" is right
-	self.rotate(PI/2)
+	rotate(PI/2)

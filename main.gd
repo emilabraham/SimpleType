@@ -17,13 +17,13 @@ func spawn_word():
 	enemy1_instance.text.update_score.connect($HUD._on_text_update_score)
 	enemy1_instance.text.break_streak.connect($HUD._on_text_break_streak)
 	enemy1_instance.text.kill_word.connect(_on_kill_word.bind(enemy1_instance))
-	enemy1_instance.text.kill_word.connect($Ship._on_kill_word)
+	enemy1_instance.text.kill_word.connect($Ship._on_kill_word.bind(enemy1_instance))
 
-func _on_kill_word(_main, enemy1):
+func _on_kill_word(_main, enemy):
 	var bullet_instance = bullet.instantiate()
 	add_child(bullet_instance)
 	bullet_instance.destroy_enemy.connect(_on_destroy_enemy)
-	bullet_instance._fire(enemy1)
+	bullet_instance._fire(enemy)
 
 func _on_destroy_enemy():
 	spawn_word()

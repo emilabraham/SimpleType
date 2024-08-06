@@ -1,7 +1,6 @@
 extends Node2D
 
 var dictionary = []
-var deleting = false
 var sprite
 var text
 
@@ -22,7 +21,7 @@ func remove_word():
 # I noticed when entering the last character, we would inadverdently break the streak
 # This method prevents that
 func toggle_deleting():
-	text.deleting = !deleting
+	text.toggle_deleting()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

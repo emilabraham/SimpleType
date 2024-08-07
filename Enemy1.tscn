@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dnkekvprtrysp" path="res://assets/enemy_ships/ship_1.png" id="1_rr715"]
 [ext_resource type="Script" path="res://Enemy1Text.gd" id="3_etmgu"]
 
-[node name="Enemy1" type="Node2D"]
+[node name="Enemy1" type="CharacterBody2D"]
 script = ExtResource("1_n76nn")
 
 [node name="Enemy1Text" type="Label" parent="."]
@@ -18,3 +18,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Enemy1Sprite" type="Sprite2D" parent="."]
 rotation = 3.14159
 texture = ExtResource("1_rr715")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(2.69352, 2.54436)
+polygon = PackedVector2Array(-8.91026, -4.7163, -5.56891, -7.86051, -5.56891, -9.82563, 5.56891, -9.82563, 5.56891, -7.86051, 9.28152, -5.10933, 9.28152, -1.96513, 1.8563, 9.43261, -2.22757, 9.43261, -8.91026, -1.96513)

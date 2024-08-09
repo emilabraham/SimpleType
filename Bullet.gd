@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal destroy_enemy
 
-var speed = 1000
+var speed = 2.5
 var target_enemy = null
 var starting_position = Vector2(600, 575)
 
@@ -10,23 +10,17 @@ var starting_position = Vector2(600, 575)
 func _ready():
 	pass
 
-func _fire(word):
-	target_enemy = word
+func _fire(enemy):
+	target_enemy = enemy
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-# Moves toward the word, then deletes itself
+# Moves toward the enemy, then deletes itself and the enemy
 func _process(delta):
-	## TODO: I want the bullet to travel towards the target_enemy, then report when it collides
 	if (target_enemy):
-		#position = position.move_toward(target_enemy.position, speed)
-		var collision = move_and_collide(position.move_toward(target_enemy.position, speed) * delta)
+		var bullet_vector = (target_enemy.position - starting_position) * speed
+		var collision = move_and_collide(bullet_vector * delta)
 		
-		#position = position.move_toward(target_enemy.position, delta * speed)
-		if (collision != null):
-			print(collision)
-			print(collision.get_collider().name)
-			
-		if (position == target_enemy.position):
+		if (collision != null && collision.get_collider() == target_enemy):
 			target_enemy.remove_word()
 			target_enemy = null
 			destroy_enemy.emit()

@@ -27,3 +27,4 @@ func _on_kill_word(_main, enemy):
 
 func _on_destroy_enemy():
 	spawn_word()
+	spawn_word()

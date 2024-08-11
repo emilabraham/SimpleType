@@ -3,13 +3,22 @@ extends CharacterBody2D
 var dictionary = []
 var sprite
 var text
+var speed = 0.1
+var starting_position
+var goal_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("enemies")
-	set_position(Vector2(randi_range(100, 1000), 200))
+	set_position(Vector2(randi_range(100, 1000), 0))
+	starting_position = position
+	goal_position = Vector2(position.x, 750)
 	sprite = get_node("Enemy1Sprite")
 	text = get_node("Enemy1Text")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	move(delta)
 
 func remove_word():
 	remove_from_group("enemies")
@@ -23,6 +32,6 @@ func remove_word():
 func toggle_deleting():
 	text.toggle_deleting()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func move(delta):
+	var enemy1_vector = (goal_position - starting_position) * speed
+	var collision = move_and_collide(enemy1_vector * delta)

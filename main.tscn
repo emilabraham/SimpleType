@@ -12,12 +12,12 @@ script = ExtResource("1_qnr2i")
 [node name="HUD" parent="." instance=ExtResource("3_at8w2")]
 
 [node name="Ship" type="Sprite2D" parent="."]
-position = Vector2(600, 554)
-scale = Vector2(0.176, 0.176)
+position = Vector2(300, 700)
+scale = Vector2(0.105, 0.105)
 texture = ExtResource("5_s05e3")
 script = ExtResource("6_0i4ph")
 
 [node name="Planet" type="Sprite2D" parent="."]
-position = Vector2(601, 1216)
-scale = Vector2(26.2083, 26.2083)
+position = Vector2(299, 994)
+scale = Vector2(11.6572, 10.8743)
 texture = ExtResource("5_j2x0u")

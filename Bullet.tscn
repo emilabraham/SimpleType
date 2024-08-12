@@ -7,7 +7,7 @@
 size = Vector2(120, 120)
 
 [node name="Bullet" type="CharacterBody2D"]
-position = Vector2(600, 575)
+position = Vector2(300, 700)
 scale = Vector2(0.1, 0.1)
 script = ExtResource("2_5oxk1")
 

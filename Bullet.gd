@@ -4,7 +4,7 @@ signal destroy_enemy
 
 var speed = 2.5
 var target_enemy = null
-var starting_position = Vector2(600, 575)
+var starting_position = Vector2(300, 700)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

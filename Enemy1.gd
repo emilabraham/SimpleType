@@ -10,7 +10,7 @@ var goal_position
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("enemies")
-	set_position(Vector2(randi_range(100, 1000), 0))
+	set_position(Vector2(randi_range(100, 500), 0))
 	starting_position = position
 	goal_position = Vector2(position.x, 750)
 	sprite = get_node("Enemy1Sprite")

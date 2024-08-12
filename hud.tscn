@@ -24,17 +24,17 @@ offset_bottom = 29.0
 text = "Score:"
 
 [node name="Multiplier" type="Label" parent="."]
-offset_left = 1112.0
-offset_top = 23.0
-offset_right = 1152.0
-offset_bottom = 49.0
+offset_left = 560.0
+offset_top = 25.0
+offset_right = 600.0
+offset_bottom = 51.0
 text = "0"
 script = ExtResource("3_i0b4k")
 
 [node name="MultiplierLabel" type="Label" parent="."]
-offset_left = 1028.0
+offset_left = 468.0
 offset_top = 23.0
-offset_right = 1108.0
+offset_right = 548.0
 offset_bottom = 49.0
 text = "Multiplier:"
 
@@ -50,7 +50,7 @@ text = "0"
 script = ExtResource("3_ylyg7")
 
 [node name="StreakLabel" type="Label" parent="."]
-offset_left = 1054.0
-offset_right = 1102.0
+offset_left = 494.0
+offset_right = 549.0
 offset_bottom = 26.0
 text = "Streak:"

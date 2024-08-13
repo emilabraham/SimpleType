@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh042utk4jn1a"]
+[gd_scene load_steps=5 format=3 uid="uid://bh042utk4jn1a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_qnr2i"]
 [ext_resource type="PackedScene" uid="uid://d042jju7p3wxg" path="res://hud.tscn" id="3_at8w2"]
-[ext_resource type="Texture2D" uid="uid://445m6n3hkcju" path="res://assets/Terran.png" id="5_j2x0u"]
 [ext_resource type="Texture2D" uid="uid://clftvvcsnvpia" path="res://assets/Spaceship_01_YELLOW.png" id="5_s05e3"]
 [ext_resource type="Script" path="res://Ship.gd" id="6_0i4ph"]
 
@@ -16,8 +15,3 @@ position = Vector2(300, 700)
 scale = Vector2(0.105, 0.105)
 texture = ExtResource("5_s05e3")
 script = ExtResource("6_0i4ph")
-
-[node name="Planet" type="Sprite2D" parent="."]
-position = Vector2(299, 994)
-scale = Vector2(11.6572, 10.8743)
-texture = ExtResource("5_j2x0u")

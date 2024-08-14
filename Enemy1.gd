@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-var dictionary = []
 var sprite
 var text
 var speed = 0.1
@@ -12,7 +11,7 @@ func _ready():
 	add_to_group("enemies")
 	set_position(Vector2(randi_range(100, 500), 0))
 	starting_position = position
-	goal_position = Vector2(position.x, 750)
+	goal_position = Vector2(300, 700)
 	sprite = get_node("Enemy1Sprite")
 	text = get_node("Enemy1Text")
 
@@ -35,3 +34,6 @@ func toggle_deleting():
 func move(delta):
 	var enemy1_vector = (goal_position - starting_position) * speed
 	var collision = move_and_collide(enemy1_vector * delta)
+	if (collision != null):
+		print(collision)
+		pass

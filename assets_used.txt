@@ -2,5 +2,3 @@ Spaceship:
 	https://gisha.itch.io/spaceships-asset-pack
 Enemy spaceships:
 	https://pixel-by-pixel.itch.io/alcwilliam-space-ship-pack
-Planet:
-	https://helianthus-games.itch.io/pixel-art-planets

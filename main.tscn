@@ -10,8 +10,14 @@ script = ExtResource("1_qnr2i")
 
 [node name="HUD" parent="." instance=ExtResource("3_at8w2")]
 
-[node name="Ship" type="Sprite2D" parent="."]
+[node name="Ship" type="CharacterBody2D" parent="."]
 position = Vector2(300, 700)
 scale = Vector2(0.105, 0.105)
-texture = ExtResource("5_s05e3")
 script = ExtResource("6_0i4ph")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ship"]
+scale = Vector2(1, 1)
+texture = ExtResource("5_s05e3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship"]
+polygon = PackedVector2Array(-19.0476, 142.857, -200, 19.0479, -114.286, -9.52393, -114.286, -38.0952, -76.1904, -38.0952, -76.1904, -19.0474, -47.6191, -28.5713, -47.6191, -142.857, 47.6191, -142.857, 47.6191, -28.5713, 76.1904, -19.0474, 76.1904, -47.6191, 114.286, -47.6191, 114.286, -9.52393, 200, 9.52393, 209.524, 19.0479, 28.5715, 142.857, -9.52368, 142.857)

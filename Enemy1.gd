@@ -36,4 +36,3 @@ func move(delta):
 	var collision = move_and_collide(enemy1_vector * delta)
 	if (collision != null):
 		print(collision)
-		pass

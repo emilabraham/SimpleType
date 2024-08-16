@@ -13,10 +13,10 @@ script = ExtResource("1_qnr2i")
 [node name="Ship" type="CharacterBody2D" parent="."]
 position = Vector2(300, 700)
 scale = Vector2(0.105, 0.105)
+collision_layer = 4
 script = ExtResource("6_0i4ph")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ship"]
-scale = Vector2(1, 1)
 texture = ExtResource("5_s05e3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship"]

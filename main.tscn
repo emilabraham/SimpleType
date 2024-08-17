@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh042utk4jn1a"]
+[gd_scene load_steps=7 format=3 uid="uid://bh042utk4jn1a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_qnr2i"]
 [ext_resource type="PackedScene" uid="uid://d042jju7p3wxg" path="res://hud.tscn" id="3_at8w2"]
+[ext_resource type="Script" path="res://Healthbar.gd" id="5_2fgyf"]
 [ext_resource type="Texture2D" uid="uid://clftvvcsnvpia" path="res://assets/Spaceship_01_YELLOW.png" id="5_s05e3"]
 [ext_resource type="Script" path="res://Ship.gd" id="6_0i4ph"]
+[ext_resource type="Texture2D" uid="uid://cp8pugej6vqu5" path="res://assets/Item 3-1.png.png" id="6_7bhbv"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_qnr2i")
@@ -21,3 +23,23 @@ texture = ExtResource("5_s05e3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship"]
 polygon = PackedVector2Array(-19.0476, 142.857, -200, 19.0479, -114.286, -9.52393, -114.286, -38.0952, -76.1904, -38.0952, -76.1904, -19.0474, -47.6191, -28.5713, -47.6191, -142.857, 47.6191, -142.857, 47.6191, -28.5713, 76.1904, -19.0474, 76.1904, -47.6191, 114.286, -47.6191, 114.286, -9.52393, 200, 9.52393, 209.524, 19.0479, 28.5715, 142.857, -9.52368, 142.857)
+
+[node name="Healthbar" type="Node2D" parent="Ship"]
+position = Vector2(-2857.14, -6666.67)
+scale = Vector2(9.52381, 9.52381)
+script = ExtResource("5_2fgyf")
+
+[node name="Heart1" type="Sprite2D" parent="Ship/Healthbar"]
+position = Vector2(288, 727)
+scale = Vector2(0.390625, 0.390625)
+texture = ExtResource("6_7bhbv")
+
+[node name="Heart2" type="Sprite2D" parent="Ship/Healthbar"]
+position = Vector2(300, 727)
+scale = Vector2(0.391, 0.391)
+texture = ExtResource("6_7bhbv")
+
+[node name="Heart3" type="Sprite2D" parent="Ship/Healthbar"]
+position = Vector2(312, 727)
+scale = Vector2(0.391, 0.391)
+texture = ExtResource("6_7bhbv")

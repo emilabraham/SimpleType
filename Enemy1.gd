@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+signal damage_ship
+
 var sprite
 var text
 var speed = 0.1
+var ship
 var starting_position
 var goal_position
 
@@ -34,5 +37,7 @@ func toggle_deleting():
 func move(delta):
 	var enemy1_vector = (goal_position - starting_position) * speed
 	var collision = move_and_collide(enemy1_vector * delta)
-	if (collision != null):
-		print(collision)
+	if (collision != null && ship == collision.get_collider()):
+		text.break_streak.emit()
+		remove_word()
+		damage_ship.emit()

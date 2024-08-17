@@ -14,3 +14,6 @@ func _on_kill_word(_main, word):
 	look_at(word.position)
 	# An extra 90 degree rotation because for some reason "forward" is right
 	rotate(PI/2)
+
+func _on_damage_ship():
+	$Healthbar._remove_heart()

@@ -18,6 +18,8 @@ func spawn_word():
 	enemy1_instance.text.break_streak.connect($HUD._on_text_break_streak)
 	enemy1_instance.text.kill_word.connect(_on_kill_word.bind(enemy1_instance))
 	enemy1_instance.text.kill_word.connect($Ship._on_kill_word.bind(enemy1_instance))
+	enemy1_instance.ship = $Ship
+	enemy1_instance.damage_ship.connect($Ship._on_damage_ship)
 
 func _on_kill_word(_main, enemy):
 	var bullet_instance = bullet.instantiate()

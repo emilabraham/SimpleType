@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal destroy_enemy
-
 var speed = 2.5
 var target_enemy = null
 var starting_position = Vector2(300, 700)
@@ -23,7 +21,6 @@ func _process(delta):
 		if (collision != null && collision.get_collider() == target_enemy):
 			target_enemy.remove_word()
 			target_enemy = null
-			destroy_enemy.emit()
 			delete_bullet()
 
 func delete_bullet():

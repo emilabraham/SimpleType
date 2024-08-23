@@ -54,3 +54,10 @@ func _on_kill_word(_main, enemy):
 	var bullet_instance = bullet.instantiate()
 	add_child(bullet_instance)
 	bullet_instance._fire(enemy)
+
+
+func _on_healthbar_game_over():
+	for child in get_children():
+		if child.name != "GameOver":
+			child.queue_free()
+	$GameOver.visible = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh042utk4jn1a"]
+[gd_scene load_steps=9 format=3 uid="uid://bh042utk4jn1a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_qnr2i"]
 [ext_resource type="Script" path="res://GameOver.gd" id="2_ds1sh"]
+[ext_resource type="Script" path="res://HighScoreLabel.gd" id="3_ad1dl"]
 [ext_resource type="PackedScene" uid="uid://d042jju7p3wxg" path="res://hud.tscn" id="3_at8w2"]
 [ext_resource type="Script" path="res://Healthbar.gd" id="5_2fgyf"]
 [ext_resource type="Texture2D" uid="uid://clftvvcsnvpia" path="res://assets/Spaceship_01_YELLOW.png" id="5_s05e3"]
@@ -14,7 +15,7 @@ script = ExtResource("1_qnr2i")
 [node name="GameOver" type="CanvasLayer" parent="."]
 script = ExtResource("2_ds1sh")
 
-[node name="Label" type="Label" parent="GameOver"]
+[node name="GameOverLabel" type="Label" parent="GameOver"]
 offset_left = 259.0
 offset_top = 376.0
 offset_right = 351.0
@@ -23,6 +24,13 @@ size_flags_horizontal = 4
 text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="GameOver"]
+offset_left = 258.0
+offset_top = 401.0
+offset_right = 298.0
+offset_bottom = 424.0
+script = ExtResource("3_ad1dl")
 
 [node name="HUD" parent="." instance=ExtResource("3_at8w2")]
 

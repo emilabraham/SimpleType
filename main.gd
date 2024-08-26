@@ -13,6 +13,7 @@ const ENEMY_1 = '1'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	time_start = Time.get_unix_time_from_system()
+	$HUD.emit_highest_score.connect($GameOver._on_update_highest_score)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

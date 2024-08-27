@@ -33,9 +33,6 @@ func increment_map_index():
 	if (map_index < map.size()):
 		var current_spawn = map[map_index]
 		choose_spawn(current_spawn)
-	else:
-		# Level ending logic here?
-		pass
 
 func choose_spawn(current_spawn):
 	if (current_spawn == ENEMY_1):

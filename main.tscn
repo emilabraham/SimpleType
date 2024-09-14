@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh042utk4jn1a"]
+[gd_scene load_steps=10 format=3 uid="uid://bh042utk4jn1a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_qnr2i"]
 [ext_resource type="Script" path="res://GameOver.gd" id="2_ds1sh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://clftvvcsnvpia" path="res://assets/Spaceship_01_YELLOW.png" id="5_s05e3"]
 [ext_resource type="Script" path="res://Ship.gd" id="6_0i4ph"]
 [ext_resource type="Texture2D" uid="uid://cp8pugej6vqu5" path="res://assets/Item 3-1.png.png" id="6_7bhbv"]
+[ext_resource type="Script" path="res://MapState.gd" id="9_2x0os"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_qnr2i")
@@ -65,5 +66,8 @@ texture = ExtResource("6_7bhbv")
 position = Vector2(312, 727)
 scale = Vector2(0.391, 0.391)
 texture = ExtResource("6_7bhbv")
+
+[node name="MapState" type="Node" parent="."]
+script = ExtResource("9_2x0os")
 
 [connection signal="game_over" from="Ship/Healthbar" to="." method="_on_healthbar_game_over"]

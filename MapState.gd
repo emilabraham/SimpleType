@@ -31,4 +31,13 @@ func load_game_data():
 	
 func get_next_level():
 	level_index = level_index + 1
-	return game_data[level_index]
+	map = game_data[level_index]
+	map_index = -1
+
+# increment the map index and then spawn the new enemy
+func increment_map_index():
+	var current_spawn = null
+	map_index = map_index + 1
+	if (map_index < map.size()):
+		current_spawn = map[map_index]
+	return current_spawn

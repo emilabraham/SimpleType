@@ -5,8 +5,6 @@ var bullet = preload("res://Bullet.tscn")
 var time_start = 0
 var time_now = 0
 var time_index = 0
-var map_index = -1
-var map
 var waiting_for_screen_clear = false
 
 const ENEMY_1 = '1'
@@ -32,10 +30,9 @@ func check_to_load_next_level():
 		waiting_for_screen_clear = false
 
 func load_next_level():
-	map = $MapState.get_next_level()
+	$MapState.get_next_level()
 	time_start = Time.get_unix_time_from_system()
 	time_index = 0
-	map_index = -1
 
 # Keep the in-game time updated
 func pass_time():
@@ -47,9 +44,8 @@ func pass_time():
 
 # increment the map index and then spawn the new enemy
 func increment_map_index():
-	map_index = map_index + 1
-	if (map_index < map.size()):
-		var current_spawn = map[map_index]
+	var current_spawn = $MapState.increment_map_index()
+	if (current_spawn != null):
 		choose_spawn(current_spawn)
 
 func choose_spawn(current_spawn):

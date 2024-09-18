@@ -71,3 +71,4 @@ texture = ExtResource("6_7bhbv")
 script = ExtResource("9_2x0os")
 
 [connection signal="game_over" from="Ship/Healthbar" to="." method="_on_healthbar_game_over"]
+[connection signal="emit_spawn" from="MapState" to="." method="_on_map_state_emit_spawn"]

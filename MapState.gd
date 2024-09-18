@@ -1,9 +1,15 @@
 extends Node
 
+signal emit_spawn
+
 var game_data = {}
 var level_index = 0
 var map_index = -1
 var map
+var waiting_for_screen_clear = false
+var time_start = 0
+var time_now = 0
+var time_index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +17,27 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if (!waiting_for_screen_clear):
+		pass_time()
+	else:
+		check_to_load_next_level()
+
+func pass_time():
+	time_now = Time.get_unix_time_from_system()
+	var time_elapsed = round(time_now - time_start)
+	if (time_elapsed > time_index):
+		time_index = time_elapsed
+		increment_map_index()
+
+func check_to_load_next_level():
+	if get_tree().get_nodes_in_group("enemies").size() == 0:
+		load_next_level()
+		waiting_for_screen_clear = false
+
+func load_next_level():
+	get_next_level()
+	time_start = Time.get_unix_time_from_system()
+	time_index = 0
 
 func load_game_data():
 	var filename = "res://game_data.txt"
@@ -40,4 +66,4 @@ func increment_map_index():
 	map_index = map_index + 1
 	if (map_index < map.size()):
 		current_spawn = map[map_index]
-	return current_spawn
+	emit_spawn.emit(current_spawn)

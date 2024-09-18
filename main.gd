@@ -13,47 +13,21 @@ const END_LEVEL = 'E'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MapState.load_game_data()
-	load_next_level()
-	time_start = Time.get_unix_time_from_system()
+	$MapState.get_next_level()
+	#load_next_level()
+	#time_start = Time.get_unix_time_from_system()
 	$HUD.emit_highest_score.connect($GameOver._on_update_highest_score)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if (!waiting_for_screen_clear):
-		pass_time()
-	else:
-		check_to_load_next_level()
-
-func check_to_load_next_level():
-	if get_tree().get_nodes_in_group("enemies").size() == 0:
-		load_next_level()
-		waiting_for_screen_clear = false
-
-func load_next_level():
-	$MapState.get_next_level()
-	time_start = Time.get_unix_time_from_system()
-	time_index = 0
-
-# Keep the in-game time updated
-func pass_time():
-	time_now = Time.get_unix_time_from_system()
-	var time_elapsed = round(time_now - time_start)
-	if (time_elapsed > time_index):
-		time_index = time_elapsed
-		increment_map_index()
-
-# increment the map index and then spawn the new enemy
-func increment_map_index():
-	var current_spawn = $MapState.increment_map_index()
-	if (current_spawn != null):
-		choose_spawn(current_spawn)
+	pass
 
 func choose_spawn(current_spawn):
 	match current_spawn:
 		ENEMY_1:
 			spawn_enemy1()
 		END_LEVEL:
-			waiting_for_screen_clear = true
+			$MapState.waiting_for_screen_clear = true
 		_:
 			pass
 
@@ -78,3 +52,8 @@ func _on_healthbar_game_over():
 		if child.name != "GameOver":
 			child.queue_free()
 	$GameOver.visible = true
+
+
+func _on_map_state_emit_spawn(emitted_spawn):
+	if (emitted_spawn != null):
+		choose_spawn(emitted_spawn)

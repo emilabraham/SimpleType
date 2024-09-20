@@ -1,6 +1,7 @@
 extends Node
 
 signal emit_spawn
+signal new_level
 
 var game_data = {}
 var level_index = 0
@@ -58,6 +59,7 @@ func load_game_data():
 func get_next_level():
 	level_index = level_index + 1
 	map = game_data[level_index]
+	new_level.emit(level_index)
 	map_index = -1
 
 # increment the map index and then spawn the new enemy

@@ -14,9 +14,9 @@ const END_LEVEL = 'E'
 func _ready():
 	$MapState.load_game_data()
 	$MapState.get_next_level()
-	#load_next_level()
-	#time_start = Time.get_unix_time_from_system()
 	$HUD.emit_highest_score.connect($GameOver._on_update_highest_score)
+	$MapState.new_level.connect($LevelScreen._on_update_level)
+	$MapState.new_level.emit(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

@@ -30,3 +30,4 @@ import/blender/enabled=false
 2d_physics/layer_1="enemy"
 2d_physics/layer_2="bullet"
 2d_physics/layer_3="player"
+2d_physics/layer_4="focused_enemy"

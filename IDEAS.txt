@@ -4,3 +4,7 @@ Powerups:
 	but you lose access to your weapons. However, whenever you type, you now ram into your target,
 	blowing it up while your ship sustains no damage. On your way to your target, you'll blow up any
 	enemies along the way.
+
+	Allow for bullet passthrough.
+	You obtain a powerup which lets your bullets pass through and destroy enemies along the way to
+	your focused target. The code for it is already available in Bullet.gd.remove_enemy()

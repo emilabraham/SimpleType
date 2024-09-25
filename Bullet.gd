@@ -17,11 +17,21 @@ func _process(delta):
 	if (target_enemy):
 		var bullet_vector = (target_enemy.position - starting_position) * speed
 		var collision = move_and_collide(bullet_vector * delta)
-		
-		if (collision != null && collision.get_collider() == target_enemy):
+		remove_enemy(collision, target_enemy)
+		#if (collision != null && collision.get_collider() == target_enemy):
+			#target_enemy.remove_word()
+			#target_enemy = null
+			#delete_bullet()
+
+func remove_enemy(collision, target_enemy):
+	if collision != null:
+		if collision.get_collider() == target_enemy:
 			target_enemy.remove_word()
 			target_enemy = null
 			delete_bullet()
+		#If we want to allow bullet passthrough. Maybe as a powerup.
+		#else:
+			#collision.get_collider().remove_word()
 
 func delete_bullet():
 	queue_free()

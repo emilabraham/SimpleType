@@ -21,6 +21,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	move(delta)
+	update_collision_layer()
+
+func update_collision_layer():
+	if (text.is_focused):
+		set_collision_layer_value(4, true)
 
 func remove_word():
 	remove_from_group("enemies")

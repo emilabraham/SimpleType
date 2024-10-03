@@ -7,4 +7,4 @@ Powerups:
 
 	Allow for bullet passthrough.
 	You obtain a powerup which lets your bullets pass through and destroy enemies along the way to
-	your focused target. The code for it is already available in Bullet.gd.remove_enemy()
+	your focused target. The code for it should involve messing with collision layers/masks

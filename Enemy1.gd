@@ -2,12 +2,12 @@ extends CharacterBody2D
 
 signal damage_ship
 
-var sprite
-var text
-var speed = 0.1
-var ship
-var starting_position
-var goal_position
+var sprite: Sprite2D
+var text: Label
+var speed: float = 0.1
+var ship: CharacterBody2D
+var starting_position: Vector2
+var goal_position: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,11 +1,8 @@
 extends Node
 
-var enemy1 = preload("res://Enemy1.tscn")
-var bullet = preload("res://Bullet.tscn")
-var time_start = 0
-var time_now = 0
-var time_index = 0
-var waiting_for_screen_clear = false
+var enemy1: PackedScene = preload("res://Enemy1.tscn")
+var bullet: PackedScene = preload("res://Bullet.tscn")
+var waiting_for_screen_clear: bool = false
 
 const ENEMY_1 = '1'
 const END_LEVEL = 'E'

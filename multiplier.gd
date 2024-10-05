@@ -1,7 +1,7 @@
 extends Label
 
-var multiplier_index
-var multiplier_values = [1, 2, 4, 8, 16, 32]
+var multiplier_index: int
+var multiplier_values: Array = [1, 2, 4, 8, 16, 32]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

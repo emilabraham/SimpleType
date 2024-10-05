@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var speed = 2.5
-var target_enemy = null
-var starting_position = Vector2(300, 700)
+var speed: float = 2.5
+var target_enemy: CharacterBody2D = null
+var starting_position: Vector2 = Vector2(300, 700)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,9 +17,9 @@ func _process(delta):
 	if (target_enemy):
 		var bullet_vector = (target_enemy.position - starting_position) * speed
 		var collision = move_and_collide(bullet_vector * delta)
-		remove_enemy(collision, target_enemy)
+		remove_enemy(collision)
 
-func remove_enemy(collision, target_enemy):
+func remove_enemy(collision):
 	if collision != null:
 		if collision.get_collider() == target_enemy:
 			target_enemy.remove_word()

@@ -3,14 +3,14 @@ extends Node
 signal emit_spawn
 signal new_level
 
-var game_data = {}
-var level_index = 0
-var map_index = -1
-var map
-var waiting_for_screen_clear = false
-var time_start = 0
-var time_now = 0
-var time_index = 0
+var game_data: Dictionary = {}
+var level_index: int = 0
+var map_index: int = -1
+var map: Array
+var waiting_for_screen_clear: bool = false
+var time_start: int = 0
+var time_now: int = 0
+var time_index: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

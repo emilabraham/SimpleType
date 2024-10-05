@@ -8,8 +8,8 @@ var level_index: int = 0
 var map_index: int = -1
 var map: Array
 var waiting_for_screen_clear: bool = false
-var time_start: int = 0
-var time_now: int = 0
+var time_start: float = 0
+var time_now: float = 0
 var time_index: int = 0
 
 # Called when the node enters the scene tree for the first time.

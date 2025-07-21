@@ -1,7 +1,7 @@
 extends Node
 
-var enemy1: PackedScene = preload("res://Enemy1.tscn")
-var bullet: PackedScene = preload("res://Bullet.tscn")
+var basic_enemy: PackedScene = preload("res://BasicEnemy/BasicEnemy.tscn")
+var bullet: PackedScene = preload("res://Bullet/Bullet.tscn")
 var waiting_for_screen_clear: bool = false
 
 const ENEMY_1 = '1'
@@ -22,34 +22,38 @@ func _process(_delta):
 func choose_spawn(current_spawn):
 	match current_spawn:
 		ENEMY_1:
-			spawn_enemy1()
+			spawn_basic_enemy()
 		END_LEVEL:
 			$MapState.waiting_for_screen_clear = true
 		_:
 			pass
 
-func spawn_enemy1():
-	var enemy1_instance = enemy1.instantiate()
-	add_child(enemy1_instance)
-	enemy1_instance.text.update_score.connect($HUD._on_text_update_score)
-	enemy1_instance.text.break_streak.connect($HUD._on_text_break_streak)
-	enemy1_instance.text.kill_word.connect(_on_kill_word.bind(enemy1_instance))
-	enemy1_instance.text.kill_word.connect($Ship._on_kill_word.bind(enemy1_instance))
-	enemy1_instance.ship = $Ship
-	enemy1_instance.damage_ship.connect($Ship._on_damage_ship)
+func spawn_basic_enemy():
+	var basic_enemy_instance = basic_enemy.instantiate()
+	add_child(basic_enemy_instance)
+	basic_enemy_instance.text.update_score.connect($HUD._on_text_update_score)
+	basic_enemy_instance.text.break_streak.connect($HUD._on_text_break_streak)
+	basic_enemy_instance.text.kill_word.connect(_on_kill_word.bind(basic_enemy_instance))
+	basic_enemy_instance.text.kill_word.connect($Ship._on_kill_word.bind(basic_enemy_instance))
+	basic_enemy_instance.text.fire_bullet.connect(_on_fire_bullet.bind(basic_enemy_instance))
+	basic_enemy_instance.ship = $Ship
+	basic_enemy_instance.damage_ship.connect($Ship._on_damage_ship)
 
 func _on_kill_word(_main, enemy):
 	var bullet_instance = bullet.instantiate()
 	add_child(bullet_instance)
 	bullet_instance._fire(enemy)
-
+	
+func _on_fire_bullet(_main, enemy):
+	var bullet_instance = bullet.instantiate()
+	add_child(bullet_instance)
+	bullet_instance._fire(enemy)
 
 func _on_healthbar_game_over():
 	for child in get_children():
 		if child.name != "GameOver":
 			child.queue_free()
 	$GameOver.visible = true
-
 
 func _on_map_state_emit_spawn(emitted_spawn):
 	if (emitted_spawn != null):

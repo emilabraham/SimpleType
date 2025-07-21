@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d042jju7p3wxg"]
 
-[ext_resource type="Script" path="res://hud.gd" id="1_51dd1"]
-[ext_resource type="Script" path="res://score.gd" id="2_hq6gr"]
-[ext_resource type="Script" path="res://multiplier.gd" id="3_i0b4k"]
-[ext_resource type="Script" path="res://streak.gd" id="3_ylyg7"]
+[ext_resource type="Script" uid="uid://qfb4qp832l1y" path="res://HUD/hud.gd" id="1_51dd1"]
+[ext_resource type="Script" uid="uid://ckmuk66dm472x" path="res://HUD/score.gd" id="2_hq6gr"]
+[ext_resource type="Script" uid="uid://dv4tmbtdwdkrc" path="res://HUD/multiplier.gd" id="3_i0b4k"]
+[ext_resource type="Script" uid="uid://ckppxbfsnrod0" path="res://HUD/streak.gd" id="3_ylyg7"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_51dd1")

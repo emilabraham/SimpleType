@@ -17,14 +17,24 @@ func _process(delta):
 	if (target_enemy):
 		var bullet_vector = (target_enemy.position - starting_position) * speed
 		var collision = move_and_collide(bullet_vector * delta)
-		remove_enemy(collision)
+
+		if collision == null:
+			return
+
+		if (target_enemy.text.text.length() == 0):
+			remove_enemy(collision)
+		else:
+			damage_enemy(collision)
+
+func damage_enemy(collision):
+	if collision.get_collider() == target_enemy:
+		delete_bullet()
 
 func remove_enemy(collision):
-	if collision != null:
-		if collision.get_collider() == target_enemy:
-			target_enemy.remove_word()
-			target_enemy = null
-			delete_bullet()
+	if collision.get_collider() == target_enemy:
+		target_enemy.remove_word()
+		target_enemy = null
+		delete_bullet()
 
 func delete_bullet():
 	queue_free()

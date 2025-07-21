@@ -3,6 +3,7 @@ extends Label
 signal update_score
 signal break_streak
 signal kill_word(word)
+signal fire_bullet(word)
 
 var dictionary = []
 var is_focused = false
@@ -74,6 +75,7 @@ func update_text():
 		set_focus(false)
 	else:
 		text = text.substr(1, text.length() + 1)
+		fire_bullet.emit(self)
 
 # We enter deleting mode as we are deleting a text object
 # We exit deleting mode as we are getting a new focus

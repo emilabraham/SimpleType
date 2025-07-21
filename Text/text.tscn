@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bioixvpctk1j4"]
 
-[ext_resource type="Script" uid="uid://bfj6umc5d6sxe" path="res://text.gd" id="1_8i3pc"]
+[ext_resource type="Script" uid="uid://bfj6umc5d6sxe" path="res://Text/text.gd" id="1_8i3pc"]
 
 [node name="Text" type="Label" groups=["enemies"]]
 offset_right = 40.0

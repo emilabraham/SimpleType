@@ -41,7 +41,7 @@ func load_next_level():
 	time_index = 0
 
 func load_game_data():
-	var filename = "res://game_data.txt"
+	var filename = "res://resources/game_data.txt"
 	var file = FileAccess.open(filename, FileAccess.READ)
 	for i in file.get_as_text().count(":"):
 		var line = file.get_line()

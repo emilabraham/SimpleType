@@ -92,7 +92,7 @@ func set_focus(value):
 		add_theme_color_override("font_color", "white")
 
 func load_dictionary():
-	var file = FileAccess.open('res://dictionary.txt', FileAccess.READ)
+	var file = FileAccess.open('res://resources/dictionary.txt', FileAccess.READ)
 	while not file.eof_reached():
 		var line = file.get_line()
 		if (!line.is_empty()):
